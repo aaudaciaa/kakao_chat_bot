@@ -61,7 +61,7 @@ class KakaoController < ApplicationController
       url = "https://api.coinnest.co.kr/api/pub/ticker?coin=tron"
       doc = RestClient.get(url)
       info = JSON.parse(doc)
-      return_text = info["last"]
+      return_text = info["last"].to_s
 
     # 다른 명령어가 들어왔을 때 => ㅠㅠ 알 수 없는 명령어 입니다 출력되게
     else
