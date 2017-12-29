@@ -9,17 +9,17 @@ class KakaoController < ApplicationController
 
   def message
     # 사용자가 보내준 텍스트를 그대로 다시 보내주기
-    home_keyboard = {
-      type: "text" # :type => "text"  //  "type" => "text"
-    }
-
     user_message = params[:content] #content에 사용자가 보낸 텍스트가 담겨있다.
     return_text = "임시 텍스트"
     image = false
 
+    home_keyboard = {
+      type: "text" # :type => "text"  //  "type" => "text"
+    }
+
     # 로또
     if user_message == "로또"
-      user_message = (1..45).to_a.sample(6).to_s
+      return_text = (1..45).to_a.sample(6).to_s
 
     # 메뉴추천
     elsif user_message == "메뉴"
