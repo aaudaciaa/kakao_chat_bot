@@ -1,6 +1,5 @@
 require 'parser'
 require 'json'
-require 'open-uri'
 
 class KakaoController < ApplicationController
   def keyboard
@@ -60,7 +59,7 @@ class KakaoController < ApplicationController
 
     elsif user_message == "코인"
       url = "https://api.coinnest.co.kr/api/pub/ticker?coin=tron"
-      doc = open(url).read
+      doc = RestClient.get(url)
       info = JSON.parse(doc)
       return_text = info["last"]
 
