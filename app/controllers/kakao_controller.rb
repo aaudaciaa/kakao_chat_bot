@@ -47,6 +47,14 @@ class KakaoController < ApplicationController
       return_text = cat_info[0]
       img_url = cat_info[1]
 
+    # 강아지 사진 보여주기
+    elsif user_message == "강아지"
+      image = true
+      dog_photo = Parser::Animal.new
+      dog_info = dog_photo.dog
+
+      return_text = dog_info[0]
+      img_url = dog_info[1]
 
     # 영화 보여주기
     elsif user_message == "영화"

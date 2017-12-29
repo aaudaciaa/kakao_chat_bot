@@ -37,5 +37,15 @@ module Parser
 
       return [return_text, cat_url]
     end
+
+    def dog
+      url = "https://dog.ceo/api/breeds/image/random"
+      doc = RestClient.get(url)
+      info = JSON.parse(doc)
+      dog_url = info["message"]
+      return_text = "강아지 사진이요ㅋㅋ"
+
+      return [return_text, dog_url]
+    end
   end
 end
