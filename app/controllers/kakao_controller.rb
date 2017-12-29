@@ -23,7 +23,7 @@ class KakaoController < ApplicationController
 
     # 메뉴추천
     elsif user_message == "메뉴"
-      return_text = ["치킨", "피자", "햄버거", "라면", "짜장면", "20층"].sample(1)
+      return_text = ["치킨", "피자", "햄버거", "라면", "짜장면", "20층"].sample(1).to_s
 
     elsif user_message == "고양이"
       # 고양이 사진 보여주기
@@ -45,7 +45,7 @@ class KakaoController < ApplicationController
 
     return_message_with_img = {
       message: {
-        text: return_text,
+        text: "고양이 사진입니다ㅎㅎ",
         photo: {
           url: cat_url,
           width: 640,
