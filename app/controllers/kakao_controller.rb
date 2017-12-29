@@ -9,7 +9,7 @@ class KakaoController < ApplicationController
 
     home_keyboard = {
       type: "buttons",
-      buttons: ["영화", "고양이", "메뉴", "로또", "코인"]
+      buttons: ["영화", "고양이", "강아지", "메뉴", "로또", "코인"]
     }
 
     render json: home_keyboard
@@ -27,7 +27,7 @@ class KakaoController < ApplicationController
 
     home_keyboard = {
       type: "buttons",
-      buttons: ["영화", "고양이", "메뉴", "로또", "코인"]
+      buttons: ["영화", "고양이", "강아지", "메뉴", "로또", "코인"]
     }
 
     # 로또
