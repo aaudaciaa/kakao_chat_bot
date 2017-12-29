@@ -18,8 +18,8 @@ class KakaoController < ApplicationController
 
     # 로또
     if user_message == "로또"
-      lotto = (1..45).sample(6)
-      
+      lotto = [1..45].sample(6)
+
       return_message = {
         message :{
           text: lotto
