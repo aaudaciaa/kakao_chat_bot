@@ -1,4 +1,6 @@
 require 'parser'
+require 'json'
+require 'open-uri'
 
 class KakaoController < ApplicationController
   def keyboard
@@ -8,7 +10,7 @@ class KakaoController < ApplicationController
 
     home_keyboard = {
       type: "buttons",
-      buttons: ["영화", "고양이", "메뉴", "로또"]
+      buttons: ["영화", "고양이", "메뉴", "로또", "코인"]
     }
 
     render json: home_keyboard
@@ -26,7 +28,7 @@ class KakaoController < ApplicationController
 
     home_keyboard = {
       type: "buttons",
-      buttons: ["영화", "고양이", "메뉴", "로또"]
+      buttons: ["영화", "고양이", "메뉴", "로또", "코인"]
     }
 
     # 로또
@@ -57,11 +59,10 @@ class KakaoController < ApplicationController
       img_url = naver_movie_info[1]
 
     elsif user_message == "코인"
-      url = "https://www.coinnest.co.kr/market-tron"
-      doc = Nokogiri::HTML(open(url))
-
-      return_text = doc.css("dl.all_coin_info dt").text
-
+      url = "https://api.coinnest.co.kr/api/pub/ticker?coin=tron"
+      doc = open(url).read
+      info = JSON.parse(doc)
+      return_text = info["last"]
 
     # 다른 명령어가 들어왔을 때 => ㅠㅠ 알 수 없는 명령어 입니다 출력되게
     else
