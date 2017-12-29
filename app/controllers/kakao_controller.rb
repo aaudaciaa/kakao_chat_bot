@@ -7,7 +7,7 @@ class KakaoController < ApplicationController
     # }
 
     home_keyboard = {
-      type: "button",
+      type: "buttons",
       buttons: ["영화", "고양이", "메뉴", "로또"]
     }
 
@@ -25,7 +25,7 @@ class KakaoController < ApplicationController
     # }
 
     home_keyboard = {
-      type: "button",
+      type: "buttons",
       buttons: ["영화", "고양이", "메뉴", "로또"]
     }
 
