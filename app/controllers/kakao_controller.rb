@@ -2,8 +2,13 @@ require 'parser'
 
 class KakaoController < ApplicationController
   def keyboard
+    # home_keyboard = {
+    #   type: "text" # :type => "text"  //  "type" => "text"
+    # }
+
     home_keyboard = {
-      type: "text" # :type => "text"  //  "type" => "text"
+      type: "button",
+      buttons: ["영화", "고양이", "메뉴", "로또"]
     }
 
     render json: home_keyboard
@@ -15,8 +20,13 @@ class KakaoController < ApplicationController
     return_text = "임시 텍스트"
     image = false
 
+    # home_keyboard = {
+    #   type: "text" # :type => "text"  //  "type" => "text"
+    # }
+
     home_keyboard = {
-      type: "text" # :type => "text"  //  "type" => "text"
+      type: "button",
+      buttons: ["영화", "고양이", "메뉴", "로또"]
     }
 
     # 로또
@@ -34,7 +44,7 @@ class KakaoController < ApplicationController
       cat_info = cat_photo.cat
 
       return_text = cat_info[0]
-      img_url = cat_info[1]      
+      img_url = cat_info[1]
 
 
     # 영화 보여주기
